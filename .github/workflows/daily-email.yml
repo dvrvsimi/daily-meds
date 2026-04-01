@@ -8,7 +8,7 @@ on:
   workflow_dispatch: # Allows manual trigger from the Actions tab for testing
 
 permissions:
-  contents: write  # Needed for the keepalive action to commit
+  contents: read
 
 jobs:
   send-email:
@@ -34,9 +34,3 @@ jobs:
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
         run: python send_daily_email.py
-
-      # Prevents GitHub from disabling this workflow after 60 days of no commits
-      - name: Keep workflow alive
-        uses: gautamkrishnar/keepalive-workflow@v2
-        with:
-          time_elapsed: 45
