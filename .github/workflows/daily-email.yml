@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs at 6:37 AM UTC daily (7:37 AM WAT / Lagos time)
     # Using an odd minute to avoid GitHub's peak scheduler load
-    - - cron: '47 9 * * *'
+    - cron: '47 9 * * *'
   workflow_dispatch: # Allows manual trigger from the Actions tab for testing
 
 permissions:
